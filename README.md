@@ -100,22 +100,15 @@ We need to create a domain controller, join a client machine, and configure secu
 
 * **Action:** Log in to "DC-1" as "mydomain.com\jane_admin."
 * **Action:** Open "PowerShell ISE" as administrator.
-* **Action:** Create a new file and paste the following script:
-
-    ```powershell
-    for ($i = 1; $i -le 5; $i++) {
-        $username = "user$i"
-        $password = ConvertTo-SecureString "Cyberlab123!" -AsPlainText -Force
-        New-ADUser -Name $username -SamAccountName $username -UserPrincipalName "$username@cyberlab.com" -AccountPassword $password -Enabled $true -Path "OU=_EMPLOYEES,DC=cyberlab,DC=com"
-    }
-    ```
+* **Action:** Create a new file and paste the following script (credit to Josh Madakor):<br>
+* [Original Script (Josh Madakor)](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1)
+* [Josh Madakor's GitHub](https://github.com/joshmadakorcc)
 
 * **Action:** Run the script.
 * **Action:** Open ADUC and verify the new users are in the "_EMPLOYEES" OU.
 * **Action:** Attempt to log in to "Client-1" as one of the new users (e.g., "cyberlab.com\user1").
 * **Explanation:** This script creates five new users in the "_EMPLOYEES" OU. This tests remote access for a standard user.
-* **Screenshot Hint:** Capture a screenshot of ADUC showing the newly created users and a screenshot of the login screen to client one with one of the new users attempting to log in.
-
+* **Action:** Manually add one more user with the name Karen Jones and username of karen.jones (for future lab).
 ---
 
 ## Finish Up
