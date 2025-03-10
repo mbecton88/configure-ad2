@@ -54,13 +54,15 @@ We need to create a domain controller, join a client machine, and configure secu
 
 ## 4. Create a Domain Admin User
 
-* **Action:** In the search box, type (ADUC) open "Active Directory Users and Computers."
+* **Action:** In the searchtive direc open "Active Directory Users and Computers."
 * **Action:** Create OUs: "_EMPLOYEES" and "_ADMINS."
+  ![image](https://github.com/user-attachments/assets/747bbec1-51d3-4881-af18-f96a7eefcf0e)
 * **Action:** Create user "Jane Doe" (username: "jane_admin," password: "Cyberlab123!").
 * **Action:** Add "jane_admin" to "Domain Admins."
-* **Action:** Log out and log back in as "cyberlab.com\jane_admin."
+  ![image](https://github.com/user-attachments/assets/db97ab11-b276-47a2-86e9-01c9845b8dda)
+* **Action:** Log out and log back in as "mydomain.com\jane_admin."
 * **Explanation:** This creates a dedicated admin account.
-* **Screenshot Hint:** Capture screenshots of the created OUs and the "jane_admin" user's properties.
+
 
 ---
 
@@ -70,30 +72,33 @@ We need to create a domain controller, join a client machine, and configure secu
 * **Action:** Restart "Client-1" from the Azure portal.
 * **Action:** Log in to "Client-1" as the local "labuser."
 * **Action:** Open "System Properties" -> "Computer Name" -> "Change."
-* **Action:** Select "Domain" and enter "cyberlab.com."
-* **Action:** Enter "cyberlab.com\jane_admin" and "Cyberlab123!" when prompted.
+* **Action:** Select "Domain" and enter "mydomain.com."
+  ![image](https://github.com/user-attachments/assets/7e54f42b-1800-4a72-bfa9-2743903c6027)
+* **Action:** Enter "mydomain.com\jane_admin" and "Cyberlab123!" when prompted.
 * **Action:** Restart "Client-1."
 * **Action:** Log in to "DC-1" and verify "Client-1" is in ADUC.
+  ![image](https://github.com/user-attachments/assets/1a7d2212-0e5c-497e-8210-f6940bdb2d60)
 * **Action:** Create an OU named "_CLIENTS" and move "Client-1" into it.
 * **Explanation:** This joins the client machine to the domain.
-* **Screenshot Hint:** Capture a screenshot of the System Properties window after joining the domain and a screenshot of ADUC showing Client-1 in the _CLIENTS OU.
+
 
 ---
 
 ## 6. Enable Remote Desktop for Domain Users
 
-* **Action:** Log in to "Client-1" as "cyberlab.com\jane_admin."
+* **Action:** Log in to "Client-1" as "mydomain.com\jane_admin."
 * **Action:** Open "System Properties" -> "Remote Desktop."
 * **Action:** Select "Allow remote connections to this computer."
+  ![image](https://github.com/user-attachments/assets/bd685ef9-7f16-4737-beab-6ee34837c7e4)
 * **Action:** Click "Select Users" and add "Domain Users."
 * **Explanation:** This allows domain users to remotely access the client machine.
-* **Screenshot Hint:** Capture a screenshot of the Remote Desktop settings with "Domain Users" added.
+
 
 ---
 
 ## 7. Create Multiple Users
 
-* **Action:** Log in to "DC-1" as "cyberlab.com\jane_admin."
+* **Action:** Log in to "DC-1" as "mydomain.com\jane_admin."
 * **Action:** Open "PowerShell ISE" as administrator.
 * **Action:** Create a new file and paste the following script:
 
