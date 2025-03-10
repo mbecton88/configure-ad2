@@ -41,12 +41,14 @@ We need to create a domain controller, join a client machine, and configure secu
 * **Action:** Expand "Computer Configuration", Policies, Windows Settings, Security Settings, Account Policies, Account Lockout Policy.
 * **Action:** Configure:
     * Account lockout duration: 30 minutes
-    * Account lockout threshold: 3 invalid logon attempts
-    * Reset account lockout counter after: 30 minutes
+    * Account lockout threshold: 5 invalid logon attempts
+    * Reset account lockout counter after: 10 minutes
+  ![image](https://github.com/user-attachments/assets/fba0dde3-a362-4710-88f6-81b073f31ca0)
 * **Action:** Close the Group Policy Management Editor.
-* **Action:** Run `gpupdate /force` in command prompt.
+* **Action:** Run `gpupdate /force` in command prompt.<br>
+  ![image](https://github.com/user-attachments/assets/b747e6e1-26be-43af-8621-653243331d3a)
 * **Explanation:** This policy increases security by locking out accounts after a certain number of failed login attempts.
-* **Screenshot Hint:** Capture a screenshot of the Account Lockout Policy settings.
+
 
 ---
 
